@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c65lvu4bkamxd"
-path="res://.godot/imported/SpaceGuy.png-d06631a2d5a8286c4e21837d9b702a0c.ctex"
+uid="uid://bigpq31tvkvhm"
+path="res://.godot/imported/icon.png-797fd9713e3880a7a59208ddab7159ef.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player/Assets/SpaceGuy.png"
-dest_files=["res://.godot/imported/SpaceGuy.png-d06631a2d5a8286c4e21837d9b702a0c.ctex"]
+source_file="res://UI/Assets/icon.png"
+dest_files=["res://.godot/imported/icon.png-797fd9713e3880a7a59208ddab7159ef.ctex"]
 
 [params]
 

@@ -1,6 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bi82qja8c4766"]
+[gd_scene load_steps=8 format=3 uid="uid://bi82qja8c4766"]
 
+[ext_resource type="Script" path="res://World/world.gd" id="1_24ojy"]
 [ext_resource type="PackedScene" uid="uid://vod4f7somq73" path="res://Player/space_guy.tscn" id="1_33758"]
+[ext_resource type="PackedScene" uid="uid://cgm366oh4fse6" path="res://Ship/space_ship.tscn" id="2_fxhuy"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_aebiq"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -15,13 +17,10 @@ sky = SubResource("Sky_akcwl")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_ol45v"]
-size = Vector2(20, 20)
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_rlg8s"]
-data = PackedVector3Array(10, 0, 10, -10, 0, 10, 10, 0, -10, -10, 0, 10, -10, 0, -10, 10, 0, -10)
+[sub_resource type="SphereMesh" id="SphereMesh_g5its"]
 
 [node name="World" type="Node"]
+script = ExtResource("1_24ojy")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_60flr")
@@ -30,12 +29,10 @@ environment = SubResource("Environment_60flr")
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 shadow_enabled = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("PlaneMesh_ol45v")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_rlg8s")
-
 [node name="SpaceGuy" parent="." instance=ExtResource("1_33758")]
+
+[node name="SpaceShip" parent="." instance=ExtResource("2_fxhuy")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, -22.6318)
+mesh = SubResource("SphereMesh_g5its")
